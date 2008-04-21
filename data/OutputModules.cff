@@ -1,3 +1,0 @@
-include "ElectroWeakAnalysis/Configuration/data/ElectroWeakAnalysis_OutputModules.cff"
-include "HiggsAnalysis/Configuration/data/HiggsAnalysis_OutputModules.cff"
-include "TopQuarkAnalysis/Configuration/data/TopQuarkAnalysis_OutputModules.cff"
