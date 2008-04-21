@@ -1,3 +1,0 @@
-include "ElectroWeakAnalysis/Configuration/data/ElectroWeakAnalysis_SkimPaths.cff"
-include "HiggsAnalysis/Configuration/data/HiggsAnalysis_SkimPaths.cff"
-include "TopQuarkAnalysis/Configuration/data/TopQuarkAnalysis_SkimPaths.cff"
