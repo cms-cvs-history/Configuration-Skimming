@@ -3,7 +3,6 @@ import FWCore.ParameterSet.Config as cms
 
 process = cms.Process("testFilter")
 
-process.load("PDSDCode.SDFilter.filterSdMu9_8e29_cfi")
 
 
 process.maxEvents = cms.untracked.PSet(
@@ -38,15 +37,13 @@ process.MessageLogger = cms.Service("MessageLogger",
 
 
 
-
-
-process.SdHltFilterPath = cms.Path(process.filterSdMu9_8e29) 
+process.load("PDSDCode.SDFilter.filterSdMu9_8e29_cfi")
  
 process.out = cms.OutputModule("PoolOutputModule",
-                               SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('SdHltFilterPath')),                               
+                               SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdMu9_8e29')),                               
                                dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('GEN-SIM-RECO'),
-        filterName = cms.untracked.string('SD_MET')),
+        filterName = cms.untracked.string('SD_Mu18')),
                                fileName = cms.untracked.string('testSdHltFilter.root')
                                )
 
