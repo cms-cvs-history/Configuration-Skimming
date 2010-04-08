@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.4 $'),
+    version = cms.untracked.string('$Revision: 1.5 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_PDMinBias_1e29_cfg.py,v $')
 )
@@ -275,6 +275,7 @@ process.outputCsOnia = cms.OutputModule("PoolOutputModule",
         dataTier = cms.untracked.string('USER'),
         filterName = cms.untracked.string('CS_Onia')),
                                         SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('Skim_diMuons')),                                        
+                                        outputCommands = process.RECOEventContent.outputCommands,
                                         fileName = cms.untracked.string('CS_Onia_1e29.root')
                                         )
 
