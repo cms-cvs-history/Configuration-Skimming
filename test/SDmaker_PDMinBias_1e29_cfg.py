@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.3 $'),
+    version = cms.untracked.string('$Revision: 1.4 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_PDMinBias_1e29_cfg.py,v $')
 )
@@ -195,34 +195,37 @@ process.Skim_diMuons = cms.Path(
 #process.load('Configuration.Skimming.filterCsDiJetAve_1e29_cfi')
 
 process.outputSdEGamma = cms.OutputModule("PoolOutputModule",
-                               SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdEGamma_1e29')),                               
-                               dataset = cms.untracked.PSet(
+                                          SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdEGamma_1e29')),                               
+                                          dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('RECO'),
         filterName = cms.untracked.string('SD_EGamma')),
-                               fileName = cms.untracked.string('SD_EGamma_1e29.root')
-                               )
+                                          outputCommands = process.RECOEventContent.outputCommands,
+                                          fileName = cms.untracked.string('SD_EGamma_1e29.root')
+                                          )
 
 process.outputSdMu = cms.OutputModule("PoolOutputModule",
-                               SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdMu_1e29')),                               
-                               dataset = cms.untracked.PSet(
+                                      SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdMu_1e29')),                               
+                                      dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('RECO'),
         filterName = cms.untracked.string('SD_Mu')),
-                               fileName = cms.untracked.string('SD_Mu_1e29.root')
-                               )
+                                      outputCommands = process.RECOEventContent.outputCommands,
+                                      fileName = cms.untracked.string('SD_Mu_1e29.root')
+                                      )
 
 process.outputSdJet = cms.OutputModule("PoolOutputModule",
-                               SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdJet_1e29')),                               
-                               dataset = cms.untracked.PSet(
+                                       SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdJet_1e29')),                               
+                                       dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('RECO'),
         filterName = cms.untracked.string('SD_Jet')),
-                               fileName = cms.untracked.string('SD_Jet_1e29.root')
-                               )
+                                       outputCommands = process.RECOEventContent.outputCommands,
+                                       fileName = cms.untracked.string('SD_Jet_1e29.root')
+                                       )
 
 process.outputCsDiJet = cms.OutputModule("PoolOutputModule",
                                          dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('USER'),
         filterName = cms.untracked.string('CS_DiJetAve')),
-       outputCommands = cms.untracked.vstring(
+                                         outputCommands = cms.untracked.vstring(
         'drop *',
         #------- CaloJet collections ------
         'keep recoCaloJets_kt4CaloJets_*_*',
@@ -263,16 +266,17 @@ process.outputCsDiJet = cms.OutputModule("PoolOutputModule",
         'keep *_metNoHF_*_*',
         'keep *_metNoHFHO_*_*', 
         'keep *_met_*_*'),
-    SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterCsDiJetAve_1e29')), 
-    fileName = cms.untracked.string('JetAOD_DiJetAve.root')
-)
+                                         SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterCsDiJetAve_1e29')), 
+                                         fileName = cms.untracked.string('JetAOD_DiJetAve.root')
+                                         )
+
 process.outputCsOnia = cms.OutputModule("PoolOutputModule",
                                         dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('USER'),
         filterName = cms.untracked.string('CS_Onia')),
                                         SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('Skim_diMuons')),                                        
                                         fileName = cms.untracked.string('CS_Onia_1e29.root')
-)
+                                        )
 
 
 process.this_is_the_end = cms.EndPath(process.outputSdEGamma+process.outputSdMu+process.outputSdJet+process.outputCsDiJet+process.outputCsOnia)
