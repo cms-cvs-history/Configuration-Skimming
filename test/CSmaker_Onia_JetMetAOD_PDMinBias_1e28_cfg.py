@@ -4,9 +4,9 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.7 $'),
+    version = cms.untracked.string('$Revision: 1.1 $'),
     annotation = cms.untracked.string('SD and central skims'),
-    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_PDMinBias_1e29_cfg.py,v $')
+    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/CSmaker_Onia_JetMetAOD_PDMinBias_1e28_cfg.py,v $')
 )
 
 
@@ -197,7 +197,7 @@ process.outputCsDiJet = cms.OutputModule("PoolOutputModule",
         'keep *_metNoHFHO_*_*', 
         'keep *_met_*_*'),
                                          SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterCsDiJetAve_1e29')), 
-                                         fileName = cms.untracked.string('JetAOD_DiJetAve.root')
+                                         fileName = cms.untracked.string('CS_JetAOD_DiJetAve_1e28.root')
                                          )
 
 process.outputCsOnia = cms.OutputModule("PoolOutputModule",
@@ -206,7 +206,7 @@ process.outputCsOnia = cms.OutputModule("PoolOutputModule",
         filterName = cms.untracked.string('CS_Onia')),
                                         SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('Skim_diMuons')),                                        
                                         outputCommands = process.RECOEventContent.outputCommands,
-                                        fileName = cms.untracked.string('CS_Onia_1e29.root')
+                                        fileName = cms.untracked.string('CS_Onia_1e28.root')
                                         )
 
 
