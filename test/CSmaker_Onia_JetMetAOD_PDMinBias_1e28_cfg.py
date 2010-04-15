@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.1 $'),
+    version = cms.untracked.string('$Revision: 1.2 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/CSmaker_Onia_JetMetAOD_PDMinBias_1e28_cfg.py,v $')
 )
@@ -99,25 +99,25 @@ process.source = cms.Source("PoolSource",
         )
 )
 
-process.MessageLogger = cms.Service("MessageLogger",
-    detailedInfo = cms.untracked.PSet(
-        threshold = cms.untracked.string('INFO')
-    ),
-    critical = cms.untracked.PSet(
-        threshold = cms.untracked.string('ERROR')
-    ),
-    debugModules = cms.untracked.vstring('*'),
-    cout = cms.untracked.PSet(
-        threshold = cms.untracked.string('WARNING'),
-        WARNING = cms.untracked.PSet(
-            limit = cms.untracked.int32(0)
-        ),
-        noLineBreaks = cms.untracked.bool(True)
-    ),
-    destinations = cms.untracked.vstring('detailedInfo', 
-        'critical', 
-        'cout')
-)
+#process.MessageLogger = cms.Service("MessageLogger",
+#    detailedInfo = cms.untracked.PSet(
+#        threshold = cms.untracked.string('INFO')
+#    ),
+#    critical = cms.untracked.PSet(
+#        threshold = cms.untracked.string('ERROR')
+#    ),
+#    debugModules = cms.untracked.vstring('*'),
+#    cout = cms.untracked.PSet(
+#        threshold = cms.untracked.string('WARNING'),
+#        WARNING = cms.untracked.PSet(
+#            limit = cms.untracked.int32(0)
+#        ),
+#        noLineBreaks = cms.untracked.bool(True)
+#    )
+#    destinations = cms.untracked.vstring('detailedInfo', 
+#        'critical', 
+#        'cout')
+#)
 
 import HLTrigger.HLTfilters.hltHighLevelDev_cfi
 

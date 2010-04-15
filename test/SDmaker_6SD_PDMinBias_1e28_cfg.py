@@ -6,7 +6,7 @@ process = cms.Process("makeSD")
 process.configurationMetadata = cms.untracked.PSet(
     version = cms.untracked.string('$Revision: 1.1 $'),
     annotation = cms.untracked.string('SD and central skims'),
-    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_TauCS_PDMinBias_1e28_cfg.py,v $')
+    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_PDMinBias_1e28_cfg.py,v $')
 )
 
 
@@ -99,32 +99,32 @@ process.source = cms.Source("PoolSource",
         )
 )
 
-process.MessageLogger = cms.Service("MessageLogger",
-    detailedInfo = cms.untracked.PSet(
-        threshold = cms.untracked.string('INFO')
-    ),
-    critical = cms.untracked.PSet(
-        threshold = cms.untracked.string('ERROR')
-    ),
-    debugModules = cms.untracked.vstring('*'),
-    cout = cms.untracked.PSet(
-        threshold = cms.untracked.string('WARNING'),
-        WARNING = cms.untracked.PSet(
-            limit = cms.untracked.int32(0)
-        ),
-        noLineBreaks = cms.untracked.bool(True)
-    ),
-    destinations = cms.untracked.vstring('detailedInfo', 
-        'critical', 
-        'cout')
-)
+#process.MessageLogger = cms.Service("MessageLogger",
+#    detailedInfo = cms.untracked.PSet(
+#        threshold = cms.untracked.string('INFO')
+#    ),
+#    critical = cms.untracked.PSet(
+#        threshold = cms.untracked.string('ERROR')
+#    ),
+#    debugModules = cms.untracked.vstring('*')
+#    cout = cms.untracked.PSet(
+#        threshold = cms.untracked.string('WARNING'),
+#        WARNING = cms.untracked.PSet(
+#            limit = cms.untracked.int32(0)
+#        ),
+#        noLineBreaks = cms.untracked.bool(True)
+#    )
+#    destinations = cms.untracked.vstring('detailedInfo', 
+#        'critical', 
+#        'cout')
+#)
 
 import HLTrigger.HLTfilters.hltHighLevelDev_cfi
 
 
-### JetMetTau SD
-process.JetMetTau_1e28 = HLTrigger.HLTfilters.hltHighLevelDev_cfi.hltHighLevelDev.clone(andOr = True)
-process.JetMetTau_1e28.HLTPaths = (
+### JetMETTau SD
+process.JetMETTau_1e28 = HLTrigger.HLTfilters.hltHighLevelDev_cfi.hltHighLevelDev.clone(andOr = True)
+process.JetMETTau_1e28.HLTPaths = (
 "HLT_Jet15U",
 "HLT_DiJetAve15U_8E29",
 "HLT_FwdJet20U",
@@ -139,17 +139,17 @@ process.JetMetTau_1e28.HLTPaths = (
 "HLT_DoubleLooseIsoTau15",
 "HLT_DoubleJet15U_ForwardBackward"
 )
-process.JetMetTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1)
-process.JetMetTau_1e28.HLTOverallPrescale = cms.uint32(1)
-process.JetMetTau_1e28.andOr = True
+process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1)
+process.JetMETTau_1e28.HLTOverallPrescale = cms.uint32(1)
+process.JetMETTau_1e28.andOr = True
 
-process.filterSdJetMetTau_1e28 = cms.Path(process.JetMetTau_1e28)
+process.filterSdJetMETTau_1e28 = cms.Path(process.JetMETTau_1e28)
 
 
 
-### JetMetTauMonitor SD
-process.JetMetTauMonitor_1e28 = HLTrigger.HLTfilters.hltHighLevelDev_cfi.hltHighLevelDev.clone(andOr = True)
-process.JetMetTauMonitor_1e28.HLTPaths = (
+### JetMETTauMonitor SD
+process.JetMETTauMonitor_1e28 = HLTrigger.HLTfilters.hltHighLevelDev_cfi.hltHighLevelDev.clone(andOr = True)
+process.JetMETTauMonitor_1e28.HLTPaths = (
 "HLT_L1Jet6U",
 "HLT_L1MET20",
 "HLT_L1SingleCenJet",
@@ -162,11 +162,11 @@ process.JetMetTauMonitor_1e28.HLTPaths = (
 "HLT_L1SingleForJet_NoBPTX",
 "HLT_L1SingleTauJet_NoBPTX"
 )
-process.JetMetTauMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1)
-process.JetMetTauMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
-process.JetMetTauMonitor_1e28.andOr = True
+process.JetMETTauMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1)
+process.JetMETTauMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
+process.JetMETTauMonitor_1e28.andOr = True
 
-process.filterSdJetMetTauMonitor_1e28 = cms.Path(process.JetMetTauMonitor_1e28)
+process.filterSdJetMETTauMonitor_1e28 = cms.Path(process.JetMETTauMonitor_1e28)
 
 ### MuMonitor SD
 process.MuMonitor_1e28 = HLTrigger.HLTfilters.hltHighLevelDev_cfi.hltHighLevelDev.clone(andOr = True)
@@ -248,22 +248,22 @@ process.filterSdEG_1e28 = cms.Path(process.EG_1e28)
 
 
 
-process.outputSdJetMetTau = cms.OutputModule("PoolOutputModule",
-                                          SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdJetMetTau_1e28')),                               
+process.outputSdJetMETTau = cms.OutputModule("PoolOutputModule",
+                                          SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdJetMETTau_1e28')),                               
                                           dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('RECO'),
-        filterName = cms.untracked.string('SD_JetMetTau')),
+        filterName = cms.untracked.string('SD_JetMETTau')),
                                           outputCommands = process.RECOEventContent.outputCommands,
-                                          fileName = cms.untracked.string('SD_JetMetTau_1e28.root')
+                                          fileName = cms.untracked.string('SD_JetMETTau_1e28.root')
                                           )
 
-process.outputSdJetMetTauMonitor = cms.OutputModule("PoolOutputModule",
-                                          SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdJetMetTauMonitor_1e28')),                               
+process.outputSdJetMETTauMonitor = cms.OutputModule("PoolOutputModule",
+                                          SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdJetMETTauMonitor_1e28')),                               
                                           dataset = cms.untracked.PSet(
         dataTier = cms.untracked.string('RECO'),
-        filterName = cms.untracked.string('SD_JetMetTauMonitor')),
+        filterName = cms.untracked.string('SD_JetMETTauMonitor')),
                                           outputCommands = process.RECOEventContent.outputCommands,
-                                          fileName = cms.untracked.string('SD_JetMetTauMonitor_1e28.root')
+                                          fileName = cms.untracked.string('SD_JetMETTauMonitor_1e28.root')
                                           )
 process.outputSdMuMonitor = cms.OutputModule("PoolOutputModule",
                                           SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('filterSdMuMonitor_1e28')),                               
@@ -303,8 +303,8 @@ process.outputSdEG = cms.OutputModule("PoolOutputModule",
 
 
 process.this_is_the_end = cms.EndPath(
-process.outputSdJetMetTau        +
-process.outputSdJetMetTauMonitor +
+process.outputSdJetMETTau        +
+process.outputSdJetMETTauMonitor +
 process.outputSdMuMonitor        +
 process.outputSdMu               +
 process.outputSdEGMonitor        +
