@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.1 $'),
+    version = cms.untracked.string('$Revision: 1.2 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_PDMinBias_1e28_cfg.py,v $')
 )
@@ -23,79 +23,19 @@ process.GlobalTag.globaltag = "GR10_P_V4::All"
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/F85204EE-EB40-DF11-8F71-001A64789D1C.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/F80836A2-FF40-DF11-A43E-00E08178C067.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/F65A94F7-4141-DF11-9F4E-003048D47A80.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/F2118BE5-FF40-DF11-B2F0-00E081791865.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/E80DA1CD-0041-DF11-8CE3-0025B3E063A8.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/E6261B1F-EC40-DF11-89F7-00E08178C045.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/E2F3F819-F040-DF11-9B20-00E08178C0F5.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/DA86BDB2-E940-DF11-A3A8-0025B3E063A8.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/D6DB0FEC-FD40-DF11-93FC-003048D46004.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/D4C61300-E940-DF11-A659-003048673EA4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/D27E9F23-FC40-DF11-92F3-00E08178C067.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/CEDBFF0C-E640-DF11-931F-003048D45FA2.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/CA0525F2-EC40-DF11-948D-0025B31E3C0A.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/C63BB055-EA40-DF11-B401-003048673F8A.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/C4DE0B83-ED40-DF11-BDC6-003048D46110.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/C4A9EF9C-F240-DF11-A5F3-002481E150FC.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/BC865204-EF40-DF11-A1FF-00E0817917E7.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/B84C00C3-ED40-DF11-AE86-00E0817917B9.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/B6FC5BA2-EB40-DF11-AC16-003048D45FEA.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/B62BF913-FE40-DF11-95C0-0015170AE328.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/B0889A04-F240-DF11-BA37-00E081B08BC9.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/ACCAE48C-EB40-DF11-B88F-0025B3E05CE4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/AC1AA07C-4041-DF11-8F7E-00E081791813.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/A65FBFDC-E640-DF11-9BC5-003048D45FEA.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/A4AF10B5-0041-DF11-B6A0-0025B3E0650E.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/A41D9B67-EC40-DF11-A121-003048D45FA8.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/A2CE75FE-EE40-DF11-A061-003048D4600C.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/A286F3B9-EE40-DF11-8F19-003048D47796.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/A26890AB-E740-DF11-97DC-003048D45FA2.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/9CE0781A-EC40-DF11-A3BD-003048D45FA2.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/9CAF81A9-E940-DF11-A84C-003048D4600C.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/9C70947C-ED40-DF11-825C-003048D47A84.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/9AB2191A-EF40-DF11-B3D4-001A64789DDC.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/98842725-FC40-DF11-BF7E-001A64789DEC.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/98098625-FF40-DF11-8DBA-003048D47A1A.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/94A4A967-E940-DF11-8008-003048D47A1A.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/944D50F8-EF40-DF11-918F-002481E14FCA.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/8A446821-EF40-DF11-9FC1-002481E150FC.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/88F8CF52-EA40-DF11-8D78-003048673F74.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/86871F39-FF40-DF11-BC3C-003048D46004.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/860DED05-3E41-DF11-B4E2-00E08178C181.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/80673EAD-E740-DF11-AE30-0025B3E05CE4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/709CE2A3-EB40-DF11-9B71-003048D45FD4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/702A765E-F140-DF11-A66F-002481E14D76.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/700A76F0-FC40-DF11-9BB3-0015170ACA88.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/6A5EB2B2-E740-DF11-A543-0015170ACA88.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/66D8AECE-EF40-DF11-BFB8-00E08178C05F.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/669FC07F-ED40-DF11-9532-001A64789458.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/667FDFA7-E940-DF11-AF69-0025B3E05CE4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/5EFD390B-ED40-DF11-89D1-0025B3E06698.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/5E800FB2-F240-DF11-AC55-0025B3E05CDA.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/5E53FAC0-E440-DF11-A2CF-003048D4774E.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/5A90DBB0-F340-DF11-A32E-001A64789DDC.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/4E3D0F6F-ED40-DF11-91D2-0025B3E05CE4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/4CA21995-EB40-DF11-A5E0-003048D4600C.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/489A0CF6-E940-DF11-89A6-003048D46004.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/46DB27A6-E940-DF11-A620-003048D45FA2.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/42E38BB5-EF40-DF11-819D-003048D47A46.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/4299620D-F240-DF11-80E6-003048635E12.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/3CC87CA8-3B41-DF11-958D-003048D460D4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/3680D462-EB40-DF11-B36F-003048D45FC8.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/283724A6-FA40-DF11-B8D2-001A64789DF8.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/24F9EA4B-F340-DF11-9FFA-001A64789D1C.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/22D65FC8-EF40-DF11-B2FB-003048D4624A.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/1E29E006-4141-DF11-9FF1-002481E15000.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/1E127F4A-EE40-DF11-AAE6-003048635E12.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/1C1A8D9C-F140-DF11-8A96-003048D47A46.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/1AF719A8-F140-DF11-AB66-001A64789458.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/16F51B00-E940-DF11-B3FE-00E0817917E7.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/162DD150-FB40-DF11-AD4A-003048673EA4.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/0E1FFB86-0141-DF11-805E-003048D46028.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/0813F6D1-FF40-DF11-A473-003048D47774.root',
-        '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/02071949-FA40-DF11-9990-001A64789DEC.root'
+       '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/E0DA54C8-964B-DF11-80F6-0030487CD7C6.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/DA6F9B16-964B-DF11-89DF-000423D99614.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/D81E4B7C-974B-DF11-AD43-0030487CD718.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/AE58D015-964B-DF11-9B6B-0030487CD840.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/6864B8B5-A24B-DF11-AB97-0030487A3C92.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/6250317B-974B-DF11-8DEE-0030487CD76A.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/46272118-964B-DF11-9A6C-0030487CAF5E.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/44D14EA8-994B-DF11-B046-000423D94908.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/24523F7C-974B-DF11-B9C2-0030487CD6DA.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/126592C9-964B-DF11-BD57-0030487C7392.root'
+
+
+
         )
 )
 
@@ -137,9 +77,11 @@ process.JetMETTau_1e28.HLTPaths = (
 "HLT_HT100U",
 "HLT_SingleLooseIsoTau20",
 "HLT_DoubleLooseIsoTau15",
-"HLT_DoubleJet15U_ForwardBackward"
+"HLT_DoubleJet15U_ForwardBackward",
+"HLT_BTagMu_Jet10U",
+"HLT_BTagIP_Jet50U"
 )
-process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1)
+process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.JetMETTau_1e28.HLTOverallPrescale = cms.uint32(1)
 process.JetMETTau_1e28.andOr = True
 
@@ -170,7 +112,10 @@ process.filterSdJetMETTauMonitor_1e28 = cms.Path(process.JetMETTauMonitor_1e28)
 
 ### MuMonitor SD
 process.MuMonitor_1e28 = HLTrigger.HLTfilters.hltHighLevelDev_cfi.hltHighLevelDev.clone(andOr = True)
-process.MuMonitor_1e28.HLTPaths = ("HLT_L1MuOpen","HLT_L1Mu")
+process.MuMonitor_1e28.HLTPaths = (
+"HLT_L1MuOpen",
+"HLT_L1Mu"
+)
 process.MuMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1)
 process.MuMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
 process.MuMonitor_1e28.andOr = True
@@ -192,9 +137,24 @@ process.Mu_1e28.HLTPaths = (
 "HLT_L1Mu14_L1SingleJet6U",
 "HLT_L1Mu14_L1ETM30",
 "HLT_L2DoubleMu0",
-"HLT_L1DoubleMuOpen"
+"HLT_L1DoubleMuOpen",
+"HLT_DoubleMu0",
+"HLT_DoubleMu3",
+"HLT_Mu3",
+"HLT_Mu5",
+"HLT_Mu9",
+"HLT_IsoMu3",
+"HLT_Mu0_L1MuOpen",
+"HLT_Mu0_Track0_Jpsi",
+"HLT_Mu3_L1MuOpen",
+"HLT_Mu3_Track0_Jpsi",
+"HLT_Mu5_L1MuOpen",
+"HLT_Mu5_Track0_Jpsi",
+"HLT_Mu0_L2Mu0",
+"HLT_Mu3_L2Mu0",
+"HLT_Mu5_L2Mu0"
 )
-process.Mu_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1)
+process.Mu_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.Mu_1e28.HLTOverallPrescale = cms.uint32(1)
 process.Mu_1e28.andOr = True
 
@@ -235,9 +195,17 @@ process.EG_1e28.HLTPaths = (
 "HLT_DoublePhoton5_Jpsi_L1R",
 "HLT_DoublePhoton5_Upsilon_L1R",
 "HLT_DoublePhoton5_L1R",
-"HLT_DoublePhoton10_L1R"
+"HLT_DoublePhoton10_L1R",
+"HLT_DoubleEle5_SW_L1R",
+"HLT_Ele20_LW_L1R",
+"HLT_Ele15_SiStrip_L1R",
+"HLT_Ele15_SC10_LW_L1R",
+"HLT_Ele15_LW_L1R",
+"HLT_Ele10_LW_EleId_L1R",
+"HLT_Ele10_LW_L1R",
+"HLT_Photon15_TrackIso_L1R"
 )
-process.EG_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1)
+process.EG_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.EG_1e28.HLTOverallPrescale = cms.uint32(1)
 process.EG_1e28.andOr = True
 
