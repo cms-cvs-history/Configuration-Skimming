@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.2 $'),
+    version = cms.untracked.string('$Revision: 1.3 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_PDMinBias_1e28_cfg.py,v $')
 )
@@ -79,9 +79,10 @@ process.JetMETTau_1e28.HLTPaths = (
 "HLT_DoubleLooseIsoTau15",
 "HLT_DoubleJet15U_ForwardBackward",
 "HLT_BTagMu_Jet10U",
-"HLT_BTagIP_Jet50U"
+"HLT_BTagIP_Jet50U",
+"HLT_StoppedHSCP_8E29"
 )
-process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.JetMETTau_1e28.HLTOverallPrescale = cms.uint32(1)
 process.JetMETTau_1e28.andOr = True
 
