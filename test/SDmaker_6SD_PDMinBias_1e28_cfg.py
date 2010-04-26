@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.4 $'),
+    version = cms.untracked.string('$Revision: 1.5 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_PDMinBias_1e28_cfg.py,v $')
 )
@@ -97,7 +97,7 @@ process.JetMETTau_1e28.HLTPaths = (
 )
 process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.JetMETTau_1e28.HLTOverallPrescale = cms.uint32(1)
-#process.JetMETTau_1e28.throw = False
+process.JetMETTau_1e28.throw = False
 process.JetMETTau_1e28.andOr = True
 
 process.filterSdJetMETTau_1e28 = cms.Path(process.JetMETTau_1e28)
@@ -121,7 +121,7 @@ process.JetMETTauMonitor_1e28.HLTPaths = (
 )
 process.JetMETTauMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1)
 process.JetMETTauMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
-#process.JetMETTauMonitor_1e28.throw = False
+process.JetMETTauMonitor_1e28.throw = False
 process.JetMETTauMonitor_1e28.andOr = True
 
 process.filterSdJetMETTauMonitor_1e28 = cms.Path(process.JetMETTauMonitor_1e28)
@@ -134,7 +134,7 @@ process.MuMonitor_1e28.HLTPaths = (
 )
 process.MuMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1)
 process.MuMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
-#process.MuMonitor_1e28.throw = False
+process.MuMonitor_1e28.throw = False
 process.MuMonitor_1e28.andOr = True
 
 process.filterSdMuMonitor_1e28 = cms.Path(process.MuMonitor_1e28)
@@ -173,7 +173,7 @@ process.Mu_1e28.HLTPaths = (
 )
 process.Mu_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.Mu_1e28.HLTOverallPrescale = cms.uint32(1)
-#process.Mu_1e28.throw = False
+process.Mu_1e28.throw = False
 process.Mu_1e28.andOr = True
 
 process.filterSdMu_1e28 = cms.Path(process.Mu_1e28)
@@ -193,7 +193,7 @@ process.EGMonitor_1e28.HLTPaths = (
 )
 process.EGMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1)
 process.EGMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
-#process.EGMonitor_1e28.throw = False
+process.EGMonitor_1e28.throw = False
 process.EGMonitor_1e28.andOr = True
 
 process.filterSdEGMonitor_1e28 = cms.Path(process.EGMonitor_1e28)
@@ -226,7 +226,7 @@ process.EG_1e28.HLTPaths = (
 )
 process.EG_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.EG_1e28.HLTOverallPrescale = cms.uint32(1)
-#process.EG_1e28.throw = False
+process.EG_1e28.throw = False
 process.EG_1e28.andOr = True
 
 process.filterSdEG_1e28 = cms.Path(process.EG_1e28)
