@@ -4,14 +4,14 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.3 $'),
+    version = cms.untracked.string('$Revision: 1.4 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_PDMinBias_1e28_cfg.py,v $')
 )
 
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(1000)
+    input = cms.untracked.int32(100)
 )
 
 process.load("Configuration.StandardSequences.MagneticField_38T_cff")
@@ -23,18 +23,31 @@ process.GlobalTag.globaltag = "GR10_P_V4::All"
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-       '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/E0DA54C8-964B-DF11-80F6-0030487CD7C6.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/DA6F9B16-964B-DF11-89DF-000423D99614.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/D81E4B7C-974B-DF11-AD43-0030487CD718.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/AE58D015-964B-DF11-9B6B-0030487CD840.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/6864B8B5-A24B-DF11-AB97-0030487A3C92.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/6250317B-974B-DF11-8DEE-0030487CD76A.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/46272118-964B-DF11-9A6C-0030487CAF5E.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/44D14EA8-994B-DF11-B046-000423D94908.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/24523F7C-974B-DF11-B9C2-0030487CD6DA.root',
-        '/store/data/Commissioning10/MinimumBias/RECO/v8/000/133/516/126592C9-964B-DF11-BD57-0030487C7392.root'
-
-
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/FC2EBD1F-134F-DF11-BE52-000423D94A20.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/FAFB20B8-0A4F-DF11-ABC9-000423D98F98.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/F23993AD-084F-DF11-AB0D-0030486780B4.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/E2E6DCFC-0E4F-DF11-8249-0030486730C6.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/D4041DD5-134F-DF11-AE0D-0030487CD718.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/D0B384AA-084F-DF11-AFEA-0030486780E6.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/CE88CA39-154F-DF11-BA79-000423D6006E.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/CA38846F-104F-DF11-9AD0-000423D944DC.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/BECAFB49-104F-DF11-A881-0030487CD7C6.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/BC1F1969-124F-DF11-B482-0030487C778E.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/BA7C9DDA-0C4F-DF11-9092-003048D2BE12.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/B8914532-0E4F-DF11-9980-0030487C6062.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/B8445CD5-054F-DF11-A76F-0030487C8CB6.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/B6019FBE-0A4F-DF11-9BC2-000423D985B0.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/A8D67778-0B4F-DF11-AFEB-000423D990CC.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/9C7112E9-074F-DF11-988B-001D09F251B8.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/70A67C35-074F-DF11-A631-001D09F295A1.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/5E2C413B-054F-DF11-8BAE-001D09F24498.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/58E767DA-0C4F-DF11-B33E-003048D2C0F4.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/56060E20-134F-DF11-9260-000423D9517C.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/4A29A188-144F-DF11-9BAC-0030487CD812.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/46795DB7-0A4F-DF11-8C02-000423D99264.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/4039E1D4-134F-DF11-8558-0030487CD7C6.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/2A7B1405-114F-DF11-83B4-0030487CD6F2.root',
+        '/store/data/Commissioning10/MinimumBias/RECO/v9/000/133/853/008A2EB9-034F-DF11-BB2A-000423D98920.root'
 
         )
 )
@@ -84,6 +97,7 @@ process.JetMETTau_1e28.HLTPaths = (
 )
 process.JetMETTau_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.JetMETTau_1e28.HLTOverallPrescale = cms.uint32(1)
+#process.JetMETTau_1e28.throw = False
 process.JetMETTau_1e28.andOr = True
 
 process.filterSdJetMETTau_1e28 = cms.Path(process.JetMETTau_1e28)
@@ -107,6 +121,7 @@ process.JetMETTauMonitor_1e28.HLTPaths = (
 )
 process.JetMETTauMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1)
 process.JetMETTauMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
+#process.JetMETTauMonitor_1e28.throw = False
 process.JetMETTauMonitor_1e28.andOr = True
 
 process.filterSdJetMETTauMonitor_1e28 = cms.Path(process.JetMETTauMonitor_1e28)
@@ -119,6 +134,7 @@ process.MuMonitor_1e28.HLTPaths = (
 )
 process.MuMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1)
 process.MuMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
+#process.MuMonitor_1e28.throw = False
 process.MuMonitor_1e28.andOr = True
 
 process.filterSdMuMonitor_1e28 = cms.Path(process.MuMonitor_1e28)
@@ -157,6 +173,7 @@ process.Mu_1e28.HLTPaths = (
 )
 process.Mu_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.Mu_1e28.HLTOverallPrescale = cms.uint32(1)
+#process.Mu_1e28.throw = False
 process.Mu_1e28.andOr = True
 
 process.filterSdMu_1e28 = cms.Path(process.Mu_1e28)
@@ -176,6 +193,7 @@ process.EGMonitor_1e28.HLTPaths = (
 )
 process.EGMonitor_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1)
 process.EGMonitor_1e28.HLTOverallPrescale = cms.uint32(1)
+#process.EGMonitor_1e28.throw = False
 process.EGMonitor_1e28.andOr = True
 
 process.filterSdEGMonitor_1e28 = cms.Path(process.EGMonitor_1e28)
@@ -208,6 +226,7 @@ process.EG_1e28.HLTPaths = (
 )
 process.EG_1e28.HLTPathsPrescales  = cms.vuint32(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
 process.EG_1e28.HLTOverallPrescale = cms.uint32(1)
+#process.EG_1e28.throw = False
 process.EG_1e28.andOr = True
 
 process.filterSdEG_1e28 = cms.Path(process.EG_1e28)
