@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.2 $'),
+    version = cms.untracked.string('$Revision: 1.3 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/CSmaker_Onia_JetMetAOD_PDMinBias_1e28_cfg.py,v $')
 )
@@ -98,6 +98,7 @@ process.source = cms.Source("PoolSource",
         '/store/data/Commissioning10/MinimumBias/RAW-RECO/v8/000/132/601/02071949-FA40-DF11-9990-001A64789DEC.root'
         )
 )
+process.source.inputCommands = cms.untracked.vstring("keep *", "drop *_MEtoEDMConverter_*_*")
 
 #process.MessageLogger = cms.Service("MessageLogger",
 #    detailedInfo = cms.untracked.PSet(
