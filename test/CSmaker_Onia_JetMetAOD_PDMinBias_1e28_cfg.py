@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.3 $'),
+    version = cms.untracked.string('$Revision: 1.4 $'),
     annotation = cms.untracked.string('SD and central skims'),
     name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/CSmaker_Onia_JetMetAOD_PDMinBias_1e28_cfg.py,v $')
 )
@@ -203,7 +203,7 @@ process.outputCsDiJet = cms.OutputModule("PoolOutputModule",
 
 process.outputCsOnia = cms.OutputModule("PoolOutputModule",
                                         dataset = cms.untracked.PSet(
-        dataTier = cms.untracked.string('USER'),
+        dataTier = cms.untracked.string('RECO'),
         filterName = cms.untracked.string('CS_Onia')),
                                         SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('Skim_diMuons')),                                        
                                         outputCommands = process.RECOEventContent.outputCommands,

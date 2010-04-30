@@ -6,7 +6,7 @@ process = cms.Process("makeSD")
 process.configurationMetadata = cms.untracked.PSet(
     version = cms.untracked.string('$Revision: 1.1 $'),
     annotation = cms.untracked.string('SD and central skims'),
-    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/SDmaker_6SD_TauCS_PDMinBias_1e28_cfg.py,v $')
+    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/CSmaker_TauCS_PDMinBias_1e28_cfg.py,v $')
 )
 
 
@@ -171,7 +171,7 @@ process.tauFilter = cms.Path(
 
 process.outputCsTau = cms.OutputModule("PoolOutputModule",
                                         dataset = cms.untracked.PSet(
-        dataTier = cms.untracked.string('USER'),
+        dataTier = cms.untracked.string('RAW-RECO'),
         filterName = cms.untracked.string('CS_Tau')),
                                         SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('tauFilter')),                                        
                                         outputCommands = process.FEVTEventContent.outputCommands,
