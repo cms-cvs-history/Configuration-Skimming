@@ -4,9 +4,9 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("makeSD")
 
 process.configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.2 $'),
+    version = cms.untracked.string('$Revision: 1.3 $'),
     annotation = cms.untracked.string('SD and central skims'),
-    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/Skimming/test/CSmaker_TauCS_PDMinBias_1e28_cfg.py,v $')
+    name = cms.untracked.string('$Source: /local/projects/CMSSW/rep/CMSSW/Configuration/Skimming/test/CSmaker_TauCS_PDMinBias_1e28_cfg.py,v $')
 )
 
 
@@ -17,7 +17,7 @@ process.maxEvents = cms.untracked.PSet(
 process.load("Configuration.StandardSequences.MagneticField_38T_cff")
 process.load("Configuration.StandardSequences.GeometryExtended_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
-process.load('Configuration.EventContent.EventContent_cff')
+process.load("Configuration.EventContent.EventContent_cff")
 process.GlobalTag.globaltag = "GR10_P_V4::All"  
 
 
@@ -34,11 +34,11 @@ process.source.inputCommands = cms.untracked.vstring("keep *", "drop *_MEtoEDMCo
 import HLTrigger.HLTfilters.hltHighLevelDev_cfi
 
 ### Tau skim CS
-process.load('CondCore.DBCommon.CondDBSetup_cfi')
+process.load("CondCore.DBCommon.CondDBSetup_cfi")
 process.load("TrackingTools/TransientTrack/TransientTrackBuilder_cfi")
 
-process.load('L1TriggerConfig.L1GtConfigProducers.L1GtTriggerMaskTechTrigConfig_cff')
-process.load('HLTrigger/HLTfilters/hltLevel1GTSeed_cfi')
+process.load("L1TriggerConfig.L1GtConfigProducers.L1GtTriggerMaskTechTrigConfig_cff")
+process.load("HLTrigger/HLTfilters/hltLevel1GTSeed_cfi")
 process.hltLevel1GTSeed.L1TechTriggerSeeding = cms.bool(True)
 process.hltLevel1GTSeed.L1SeedsLogicalExpression = cms.string('(0 AND (40 OR 41) AND NOT (36 OR 37 OR 38 OR 39))')
 
@@ -49,32 +49,10 @@ process.scrapping = cms.EDFilter("FilterOutScraping",
         thresh = cms.untracked.double(0.25)
 )
 
-from RecoTauTag.RecoTau.PFRecoTauDiscriminationByLeadingTrackFinding_cfi import *
-from RecoTauTag.RecoTau.PFRecoTauDiscriminationByIsolation_cfi import *
-from RecoTauTag.RecoTau.PFRecoTauDiscriminationByTrackIsolationUsingLeadingPion_cfi import *
-from RecoTauTag.RecoTau.TauDiscriminatorTools import *
-
-from RecoTauTag.Configuration.ShrinkingConePFTaus_cfi import *
-process.looseShrikingConePFTaus = copy.deepcopy(shrinkingConePFTauProducer)
-process.looseShrikingConePFTaus.LeadPFCand_minPt = cms.double(3.0)
-
-process.thePFTauDiscByLeadTrkFinding = copy.deepcopy(pfRecoTauDiscriminationByLeadingTrackFinding)
-process.thePFTauDiscByLeadTrkFinding.PFTauProducer = cms.InputTag('looseShrikingConePFTaus')
-
-process.thePFTauDiscByIsolation = copy.deepcopy(pfRecoTauDiscriminationByIsolation)
-process.thePFTauDiscByIsolation.PFTauProducer = cms.InputTag('looseShrikingConePFTaus')
-process.thePFTauDiscByIsolation.Prediscriminants = cms.PSet(
-      BooleanOperator = cms.string("and"),
-      leadTrack = cms.PSet(
-      Producer = cms.InputTag('thePFTauDiscByLeadTrkFinding'),
-      cut = cms.double(0.5)
-)
-      )
-
 process.PFTausSelected = cms.EDFilter("PFTauSelector",
-    src = cms.InputTag("looseShrikingConePFTaus"),
+    src = cms.InputTag("shrinkingConePFTauProducer"),
     discriminators = cms.VPSet(
-	cms.PSet( discriminator=cms.InputTag("thePFTauDiscByIsolation"),
+	cms.PSet( discriminator=cms.InputTag("shrinkingConePFTauDiscriminationByIsolation"),
 		   selectionCut=cms.double(0.5)
 	),
     ),
@@ -90,10 +68,6 @@ process.PFTauSkimmed = cms.EDFilter("CandViewCountFilter",
 process.tauFilter = cms.Path(
 	process.hltLevel1GTSeed *
 	process.scrapping *
-	process.looseShrikingConePFTaus *
-	process.thePFTauDiscByLeadTrkFinding *
-	process.thePFTauDiscByIsolation *
-	#process.thePFTauDiscByLeadPionPtCut *
 	process.PFTausSelected *
 	process.PFTauSkimmed
 )
